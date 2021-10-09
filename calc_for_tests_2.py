@@ -23,6 +23,5 @@ def calc(expression):
                 raise ValueError('Вираз повинен містити два цілих числа і один знак')
 
 
-
 if __name__ == '__main__':
     calc('fd')
