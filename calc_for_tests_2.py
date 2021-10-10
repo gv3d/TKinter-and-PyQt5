@@ -5,7 +5,7 @@
 def calc(expression):
     allowed = '+-/*'
     if not any(sign in expression for sign in allowed):  # перевірка на наявність знаків '+-/*'
-        raise ValueError(f'Вираз повинен містити хоча б один знак ({allowed})')
+        raise ValueError('Вираз повинен містити хоча б один знак (+-/*)')
     for sign in allowed:  # для кожного знаку в '+-/*'
         if sign in expression:  # якщо він є у виразі, спробувати провести обчислення
             try:
