@@ -11,17 +11,23 @@ def calc(expression):
             try:
                 left, right = expression.split(sign)  # ділимо вираз по знаку на left і right
                 left, right = int(left), int(right)  # переводимо дві частини виразу в цілі числа
-                if sign == '+':  # основні операції:
-                    return left + right
-                elif sign == '-':
-                    return left - right
-                elif sign == '/':
-                    return left / right
-                elif sign == '*':
-                    return left * right
+                # if sign == '+':  # основні операції:
+                #     return left + right
+                # elif sign == '-':
+                #     return left - right
+                # elif sign == '/':
+                #     return left / right
+                # elif sign == '*':
+                #     return left * right
+                return {
+                    '+': lambda a, b: a + b,
+                    '-': lambda a, b: a - b,
+                    '*': lambda a, b: a * b,
+                    '/': lambda a, b: a / b,
+                }[sign](left, right)
             except (ValueError, TypeError):
-                raise ValueError('Вираз повинен містити два цілих числа і один знак')
+                raise ValueError('Вираз повинен містити два цілих числа і тільки один знак')
 
 
 if __name__ == '__main__':
-    calc('fd')
+    print(calc('2/8'))
